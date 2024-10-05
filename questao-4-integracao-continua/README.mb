@@ -1,0 +1,22 @@
+# Integração Contínua e Automação de Testes
+
+## Pergunta:
+Explique como a prática de Integração Contínua (CI) pode ser combinada com automação de testes para melhorar a qualidade do software e a eficiência do time.
+
+## Resposta:
+
+1. **Automação no Pipeline CI:**
+   - **Estratégia:** Configurar pipelines de Integração Contínua (usando ferramentas como Jenkins, GitHub Actions ou GitLab CI) para executar testes automaticamente sempre que há uma nova alteração no código (push ou pull request).
+   - **Benefícios:** Detecta rapidamente falhas de integração, garantindo que o código submetido por desenvolvedores funcione corretamente com o sistema como um todo.
+
+2. **Execução Automática de Testes:**
+   - **Estratégia:** Integrar a execução dos testes automatizados (unitários, de integração e end-to-end) diretamente no pipeline de CI. Isso aumenta a confiabilidade ao garantir que nenhuma funcionalidade existente seja quebrada com as mudanças.
+   - **Exemplo de Ferramentas:** Cypress é uma ferramenta interessante e com ela é possível auutomatizar diferentes tipos de teste.
+
+3. **Feedback Rápido:**
+   - **Estratégia:** Testes automatizados e executados continuamente proporcionam um feedback rápido à equipe de desenvolvimento. Bugs são identificados no início, o que reduz o custo de correção.
+   - **Ferramenta:** Relatórios automáticos e recebimento de notificações, é possível integrar ferramentas como o teams, slask, discord 
+
+4. **Garantia de Qualidade:**
+   - **Estratégia:** Ajuda a manter uma piramide de testes saudável (testes unitários na base, integração no meio, e end-to-end no topo) para garantir eficiência e cobertura adequada de todas as camadas.
+   - **Técnica:** Executar testes unitários e de integração com frequência, e testes de UI apenas para as funcionalidades críticas.

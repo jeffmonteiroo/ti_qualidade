@@ -1,0 +1,19 @@
+{
+  "name": "desafio-pratico",
+  "version": "1.0.0",
+  "description": "Desafio prático com cypress consumindo uma API ",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx cypress run"
+  },
+  "keywords": [
+    "cypress",
+    "api"
+  ],
+  "author": "Jeff Monteiro",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^13.15.0",
+    "cypress-plugin-api": "^2.11.2"
+  }
+}

@@ -1,0 +1,20 @@
+# Automação de Testes em Ambientes Complexos
+
+## Pergunta:
+Como você abordaria a automação de testes em um ambiente com múltiplos microserviços e alta interdependência entre sistemas?
+Quais estratégias você utilizaria para garantir a confiabilidade dos testes automatizados?
+
+## Resposta:
+
+1. **Abordagem de Testes Modularizados:**
+   - **Estratégia:** Dividir a automação de testes em módulos, onde cada módulo representa um microserviço. Isso facilita a manutenção e a execução independente de testes de partes específicas do sistema.
+   - **Técnica:** Usar testes de contrato entre microserviços, como Pact, para garantir que as interações entre eles estão funcionando conforme esperado.
+
+2. **Testes de Integração:**
+   - **Estratégia:** Focar em **testes de integração** entre os microserviços para garantir que a comunicação entre eles esteja funcionando corretamente, além de executar **testes de ponta a ponta** em cenários que envolvem vários microserviços.
+   - **Ferramenta:** Ferramentas como Postman e Newman podem ser utilizadas para testes de APIs entre microserviços.
+
+3. **Testes Automatizados com Ambientes Contêinerizados:**
+   - **Estratégia:** Utilizar Docker para simular os ambientes complexos de microserviços. Isso garante que os testes rodem em um ambiente controlado e replicável.
+   - **Técnica:** Executar os testes automatizados dentro de pipelines CI/CD usando Docker e Kubernetes para orquestrar o ambiente e garantir a consistência.
+

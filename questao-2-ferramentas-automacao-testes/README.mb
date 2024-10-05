@@ -1,0 +1,22 @@
+# Ferramentas de Automação de Testes
+
+## Pergunta:
+Liste as ferramentas que você conhece para automação de testes em diferentes plataformas (Web e APIs). Explique por que você escolheria cada uma delas.
+
+## Resposta:
+
+1. **Cypress (Web):**
+   - **Motivo:** Cypress é uma ferramenta excelente para automação de testes de aplicações web modernas. Suporta escrita em JavaScript, sendo ideal para equipes ágeis.
+   - **Vantagens:** Instalação rápida, Execução rápida, captura automática de screenshots e vídeos dos testes, integração com CI/CD, Permite escrever teste de API e interface de usuário.
+
+2. **Postman (APIs):**
+   - **Motivo:** Postman é uma ferramenta extremamente poderosa e de fácil uso para testes de APIs REST. Permite automação de cenários e integração com ferramentas de CI, além de gerar relatórios sobre a execução.
+   - **Vantagens:** Suporte a execução de testes automáticos através do Newman, interface amigável, a própria ferramenta possui suporte e a comunidade é grande para ajudar a tirar dúvidas em fóruns etc ...
+
+4. **Appium (Mobile):**
+   - **Motivo:** Para testes de aplicativos móveis (iOS e Android), Appium é uma boa escolha escolha, pois suporta testes nativos, híbridos e web.
+   - **Vantagens:** Flexibilidade em testar múltiplas plataformas móveis, integração com várias linguagens.
+
+5. **Robot Framework (Diversas plataformas):**
+   - **Motivo:** Ferramenta de automação de testes baseada em palavras-chave, ideal para equipes que precisam de uma sintaxe mais clara e acessível para membros não técnicos.
+   - **Vantagens:** Extensível, suporta bibliotecas para Web, API, mobile e desktop. É possível integrar com Jenkins para CI.

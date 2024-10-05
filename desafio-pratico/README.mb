@@ -1,0 +1,167 @@
+
+# Automação de Testes - API de Autenticação com Cypress
+
+Este projeto contém scripts de automação de testes utilizando Cypress para validar a autenticação de uma API. O objetivo principal é garantir que as operações de geração de tokens de autenticação funcionem conforme esperado.
+
+##
+
+
+## Requisitos
+
+[Node.js (versão 18 ou superior)](https://nodejs.org/pt/download)
+NPM (gerenciador de pacotes do Node.js)
+Cypress (versão 13 ou superior)
+
+
+
+
+## Instalação
+
+Após baixar o problema, instale as dependencias 
+
+```bash
+  cd /desafio-pratico/automacao-api-cypress
+  npm install
+```
+
+Execute o Cypress em modo visual
+```bash
+  npx cypress open
+```
+
+Execute o Cypress em modo headless
+```bash
+  npx cypress run
+```
+
+
+## Arquivos Importantes
+
+    O arquivo fixtures/autentication.json contém as credenciais usadas nos testes de autenticação, por este motivo as credências válidas não serão compartilhadas.
+
+##  Estrutura dos Testes
+    Os principais testes automatizados estão localizados em cypress/e2e/auth-token.cy.js. Os testes cobrem os seguintes cenários:
+
+### Autenticação com sucesso: 
+    Verifica se o token é gerado corretamente ao usar credenciais válidas.
+
+### Falha na autenticação: 
+    Simula uma tentativa de login com credenciais inválidas, garantindo que o status 401 Unauthorized seja retornado.
+
+### Requisição inválida: 
+    Envia uma requisição sem o parâmetro grant_type e valida o retorno de erro 400 Bad Request.
+
+###  Validações Incluídas nos Testes
+
+#### Status Code: 
+    Valida se o código de resposta está correto (200, 401, 400).
+#### Campos Obrigatórios: 
+    Verifica se os campos essenciais (access_token, token_type, error, error_description) estão presentes nas respostas da API.
+#### Contrato da API: 
+    Garante que a resposta da API está de acordo com o esperado, incluindo a verificação de campos como Bearer no token_type.
+#### Autenticação: 
+    Valida o fluxo completo de geração de token usando as credenciais da API.
+
+
+## Documentação da API
+
+####    URL Base
+```url
+  POST https://api-homologacao.getnet.com.br/auth/oauth
+```
+
+### Descrição
+    Esta API é utilizada para obter um access token para autenticação nas demais requisições. O token gerado será utilizado para autorizar operações em outros endpoints da API que não são abordados nesse teste.
+
+#### Enviar Requisição
+
+```http
+  POST /v2/token
+```
+
+#### Cabeçalhos 
+| Campo   | Tipo | Valor      | Descrição                           |
+| :---------- | :--------- | :--------------| :--------------------- |
+| Content-Type | string | application/x-www-form-urlencoded  | **Obrigatório** Define o formato dos dados. |   
+| `Authorization` | `string` |   Basic {Base64(clientId:clientSecret)}   |**Obrigatório** O valor deve ser a concatenação do clientId e clientSecret codificada em Base64.|   
+
+
+#### Corpo de Requisição 
+| Campo   | Tipo | Valor      | Descrição                           |
+| :---------- | :--------- | :--------------| :--------------------- |
+| scope |  string | oob | **Opiciconal**. |
+| grant_type | string  | client_credentials | **Obrigatório**.|
+
+
+
+####    Exemplo de requisição
+
+```curl
+  curl --location 'https://api-homologacao.getnet.com.br/auth/oauth/v2/token' \
+--header 'authorization: Basic Njc4MjNjNmQtNThkZS00OTRmLTk2ZDktODZhNGMyMjY4MmNiOmMyZDZhMDZmL=' \
+--header 'content-type: application/x-www-form-urlencoded' \
+--header 'Cookie: 2bc76d9d17ed2f5dbfc5bb72aff5d727=afde6a3c9d4782bc5185b45464a4430f' \
+--data-urlencode 'scope=oob' \
+--data-urlencode 'grant_type=client_credentials'
+```
+
+####    Exemplo de resposta da API 
+
+```json
+{
+  "access_token": "ca22a2ge-1914-4b0c-a0fb-d3ce0fdfb14f",
+  "expires_in": 3600,
+  "token_type": "Bearer",
+  "scope": "oob"
+}
+
+```
+
+| Parâmetro   | Tipo       | Descrição                                   |
+| :---------- | :--------- | :------------------------------------------ |
+| `access_token`      | `string` | Obrigatório. Token de acesso que será utilizado para autorizar outras requisições.  |
+| `expires_in`      | `number` | Obrigatório. Tempo de expiração do token em segundos.  |
+| `token_type`      | `Bearer` | Obrigatório. O tipo do token retornado, deve ser sempre Bearer  |
+| `scope`      | `oob` | Opcional. Define o escopo do token, retornará oob se fornecido na requisição.  |
+
+
+#### Possíveis Códigos de Resposta
+| Código     | Descrição                                   |
+| :----------  | :------------------------------------------ |
+| `200 OK`      | `Token gerado com sucesso.`  |
+| `400 Bad Request`      | `Requisição inválida. Exemplo: falta de parâmetros obrigatórios como grant_type.`  |
+| `401 Unauthorized`      | `Autenticação falhou. Credenciais inválidas ou ausentes.` |
+
+
+
+## Rodando os testes
+
+Antes de executar o teste, não esqueça de inserir as credências validas 
+
+
+Para rodar os testes, rode o seguinte comando
+
+```bash
+  npm run test
+```
+
+## Teste executado em modo headless
+![Mode Headless](./image/modo-headless.png)
+
+
+
+
+## Teste executado em modo visual 
+
+### Cenário 1 - Deve autenticar e gerar o token com sucesso
+
+![cenario-1](./image/cenario-1.png)
+
+### Cenário 2 - Deve retornar erro 400 para requisição inválida
+
+![cenario-1](./image/cenario-2.png)
+
+### Cenário 3 - Deve falhar com status 401 para credenciais inválidas
+
+![cenario-1](./image/cenario-3.png)
+

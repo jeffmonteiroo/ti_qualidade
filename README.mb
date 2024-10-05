@@ -1,0 +1,13 @@
+# Prova QA - TI Qualidade
+
+Este repositório contém as respostas teóricas e as implementações práticas do desafio técnico de QA, com foco em automação de testes com cypress em API.
+
+## Índice
+##Questões Teóricas
+1. [Validação de Máquina de Cartão](./questao-1-validacao-maquina-cartao/README.md)
+2. [Ferramentas de Automação de Testes](./questao-2-ferramentas-automacao-testes/README.md)
+3. [Automação de Testes em Ambientes Complexos](./questao-3-ambientes-complexos/README.md)
+4. [Integração Contínua e Automação de Testes](./questao-4-integracao-continua/README.md)
+## Desafio Prático
+5. [Desafio Prático - Automação de API com Cypress](./desafio-pratico/README.md)
+

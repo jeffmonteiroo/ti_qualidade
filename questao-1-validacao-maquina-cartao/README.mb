@@ -1,0 +1,38 @@
+# Validação de Máquina de Cartão
+
+Um cliente adquiriu um novo modelo de máquina de cartão que aceita as bandeiras Visa, Master,Elo, Amex e Hiper. 
+A máquina suporta tanto transações de débito quanto de crédito para cada uma dessas bandeiras.
+
+## Pergunta:
+Como você estruturaria o plano de testes para validar essa máquina, considerando todas as bandeiras e tipos de transação? 
+Quantos casos de teste seriam necessários e qual técnica de teste você utilizaria para garantir a cobertura completa e eficiente dos cenários?
+
+## Resposta:
+
+Para validar a funcionalidade da máquina de cartão que aceita múltiplas bandeiras (Visa, Master, Elo, Amex e Hiper) e suporta tanto transações de débito quanto crédito, o plano de testes seguiria os seguintes passos:
+
+1. **Identificação dos Cenários de Teste:**
+   - Separar os tipos de transação (crédito e débito).
+   - Listar cada bandeira suportada (Visa, Master, Elo, Amex, Hiper).
+   - Identificar transações possíveis (compra, cancelamento, parcelamento, estorno, etc.).
+
+2. **Cobertura de Casos de Teste:**
+   - Para garantir cobertura completa e ajudar a identificar quais combinações de entrada possiveis no teste, utilizo a técnica de **Particionamento de Equivalência** e **Análise de Valor Limite** para focar nos cenários principais.
+   - Para garantir a compatibilidade com cada bandeira e tipo de transação utilizaria os testes funcionais 
+
+3. **Casos de Teste Positivos e Negativos:**
+   - Para cada bandeira (5 bandeiras), considerar dois tipos de transação (débito e crédito).
+   - Compra, parcelamento, cancelamento e estorno. Exemplo:
+     - Visa Débito (compra, cancelamento, estorno, cancelamento)
+     - Visa Crédito (compra, parcelamento, estorno, cancelamento)
+     - E assim aplicada para todas as bandeiras.
+   - Seriam necessários **mais de 40 casos de teste**, dependendo da variedade de operações suportadas por cada bandeira.
+
+4. **Técnica de Teste:**
+   - Aplicaria a técnica de **teste de caixa-preta** para validar as funcionalidades.
+   - Quando necessário **Testes de Regressão** devem ser aplicados após qualquer modificação no sistema para garantir que transações previamente funcionais continuem operando corretamente.
+
+
+## Matriz de Teste - Validação de Máquina de Cartão
+
+![Matriz de Teste](./image/matriz-teste_questao-1.png)

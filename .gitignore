@@ -1,0 +1,19 @@
+# Ignorar o diretório de dependências
+node_modules/
+
+# Ignorar arquivos de configuração do Cypress gerados automaticamente
+cypress/screenshots/
+cypress/videos/
+
+# Ignorar arquivos de lock do npm (opcional)
+package-lock.json
+
+# Ignorar o arquivo de configuração local do Cypress
+cypress.env.json
+
+# Ignorar caches e arquivos temporários
+.DS_Store
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

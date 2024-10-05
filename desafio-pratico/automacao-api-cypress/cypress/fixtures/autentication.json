@@ -1,0 +1,10 @@
+{
+    "ValidCredentials": {
+        "clientId": "${CLIENT_ID}",
+        "clientSecret": "${CLIENT_SECRET}"
+      },
+    "InvalidCredentials": {
+        "clientId": "86a4c22682cb",
+        "clientSecret": "7e170e8536e4"
+    }
+}
